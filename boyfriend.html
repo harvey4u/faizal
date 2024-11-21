@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>luh </title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #87CEEB; /* Sky Blue */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      width: 80%;
+      max-width: 500px;
+    }
+    h1 {
+      color: #0073e6;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .btn-group {
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .btn:hover {
+      background: #005bb5;
+    }
+    .btn.no {
+      position: absolute;
+    }
+    .hidden-message {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #0073e6; /* Sky blue shade */
+      display: none; /* Hidden initially */
+      animation: fadeIn 0.8s forwards;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>love pako nimo?</h1>
+    <div class="btn-group">
+      <button class="btn yes" onclick="showMessage()">Yes</button>
+      <button class="btn no" id="noBtn" onmouseover="moveNoButton()">No</button>
+    </div>
+    <div class="hidden-message" id="hiddenMessage">
+      dapat lang !! I love you so much lovelove ko mwaah! <br>
+      
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      const message = document.getElementById('hiddenMessage');
+      message.style.display = 'block'; // Show the hidden message
+    }
+
+    function moveNoButton() {
+      const noButton = document.getElementById('noBtn');
+      const container = document.querySelector('.container');
+      const containerRect = container.getBoundingClientRect();
+
+      // Randomize position within the container
+      const x = Math.random() * (containerRect.width - noButton.offsetWidth);
+      const y = Math.random() * (containerRect.height - noButton.offsetHeight);
+
+      noButton.style.left = `${x}px`;
+      noButton.style.top = `${y}px`;
+    }
+  </script>
+</body>
+</html>
